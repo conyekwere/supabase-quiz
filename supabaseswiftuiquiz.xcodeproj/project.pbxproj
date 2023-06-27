@@ -14,6 +14,7 @@
 		5D6014C12A4AAD25006775E8 /* supabaseswiftuiquizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6014C02A4AAD25006775E8 /* supabaseswiftuiquizTests.swift */; };
 		5D6014CB2A4AAD25006775E8 /* supabaseswiftuiquizUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6014CA2A4AAD25006775E8 /* supabaseswiftuiquizUITests.swift */; };
 		5D6014CD2A4AAD25006775E8 /* supabaseswiftuiquizUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6014CC2A4AAD25006775E8 /* supabaseswiftuiquizUITestsLaunchTests.swift */; };
+		5D6014DA2A4AAE6D006775E8 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6014D92A4AAE6D006775E8 /* QuestionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		5D6014C62A4AAD25006775E8 /* supabaseswiftuiquizUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = supabaseswiftuiquizUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D6014CA2A4AAD25006775E8 /* supabaseswiftuiquizUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = supabaseswiftuiquizUITests.swift; sourceTree = "<group>"; };
 		5D6014CC2A4AAD25006775E8 /* supabaseswiftuiquizUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = supabaseswiftuiquizUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		5D6014D92A4AAE6D006775E8 /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				5D6014B22A4AAD25006775E8 /* Assets.xcassets */,
 				5D6014B42A4AAD25006775E8 /* supabaseswiftuiquiz.entitlements */,
 				5D6014B52A4AAD25006775E8 /* Preview Content */,
+				5D6014D92A4AAE6D006775E8 /* QuestionView.swift */,
 			);
 			path = supabaseswiftuiquiz;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D6014B12A4AAD22006775E8 /* ContentView.swift in Sources */,
+				5D6014DA2A4AAE6D006775E8 /* QuestionView.swift in Sources */,
 				5D6014AF2A4AAD22006775E8 /* supabaseswiftuiquizApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

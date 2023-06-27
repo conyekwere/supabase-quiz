@@ -6,16 +6,24 @@
 //
 
 import SwiftUI
+class QuizMangager:ObservableObject{
+    var mockQustions = [
+        Question(title: " When was the iPhone first released?", answer: "A", choices: ["A","B","C","D"]),
+        Question(title: " When was the iP?", answer: "A", choices: ["A","B","C","D"]),
+        Question(title: "  iPhone first released?", answer: "A", choices: ["A","B","C","D"]),
+        Question(title: " iPhone first released?", answer: "A", choices: ["A","B","C","D"])
+    ]
+}
 
 struct ContentView: View {
+    @StateObject var manager = QuizMangager()
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        TabView {
+            ForEach(manager.mockQustions, id: \.id){ question in
+                QuestionView(question: question)
+            }
         }
-        .padding()
+        .tabViewStyle(.page(indexDisplayMode: .never) )
     }
 }
 
