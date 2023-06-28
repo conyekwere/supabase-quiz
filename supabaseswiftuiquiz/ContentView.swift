@@ -7,11 +7,11 @@
 
 import SwiftUI
 class QuizMangager:ObservableObject{
-    var mockQustions = [
+    var mockQuestions = [
         Question(title: " When was the iPhone first released?", answer: "A", choices: ["A","B","C","D"]),
         Question(title: " When was the iP?", answer: "A", choices: ["A","B","C","D"]),
         Question(title: "  iPhone first released?", answer: "A", choices: ["A","B","C","D"]),
-        Question(title: " iPhone first released?", answer: "A", choices: ["A","B","C","D"])
+        Question(title: " last?", answer: "A", choices: ["A","B","C","D"])
     ]
 }
 
@@ -19,8 +19,26 @@ struct ContentView: View {
     @StateObject var manager = QuizMangager()
     var body: some View {
         TabView {
-            ForEach(manager.mockQustions, id: \.id){ question in
-                QuestionView(question: question)
+            ForEach(manager.mockQuestions, id: \.id){ question in
+                VStack{
+                    Spacer()
+                    QuestionView(question: question)
+                    Spacer()
+                    if let lastQuestion = manager.mockQuestions.last,lastQuestion.id == question.id{
+                        
+                        Button{ print("submit")} label: {
+                            Text("Submit")
+                                .padding()
+                                
+                                .foregroundColor(.white)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 20,style: .continuous)
+                                        .fill(Color("SelectColor"))
+                                        .frame(width: 340)
+                                )
+                        }
+                    }
+                }
             }
         }
         .tabViewStyle(.page(indexDisplayMode: .never) )
