@@ -13,6 +13,13 @@ class QuizMangager:ObservableObject{
         Question(title: "  iPhone first released?", answer: "A", choices: ["A","B","C","D"]),
         Question(title: " last?", answer: "A", choices: ["A","B","C","D"])
     ]
+    func canSubmitQuiz() -> Bool{
+//        for question in mockQuestions {
+//            if question.id
+//        }
+        return mockQuestions.filter({$0.selection == nil }).isEmpty
+        
+    }
 }
 
 struct ContentView: View {
@@ -26,7 +33,7 @@ struct ContentView: View {
                     Spacer()
                     if let lastQuestion = manager.mockQuestions.last,lastQuestion.id == question.id{
                         
-                        Button{ print("submit")} label: {
+                        Button{ print(manager.canSubmitQuiz())} label: {
                             Text("Submit")
                                 .padding()
                                 
