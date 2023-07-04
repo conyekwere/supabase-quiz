@@ -7,7 +7,7 @@
 
 import SwiftUI
 class QuizMangager:ObservableObject{
-    var mockQuestions = [
+    @Published var mockQuestions = [
         Question(title: " When was the iPhone first released?", answer: "A", choices: ["A","B","C","D"]),
         Question(title: " When was the iP?", answer: "A", choices: ["A","B","C","D"]),
         Question(title: "  iPhone first released?", answer: "A", choices: ["A","B","C","D"]),
@@ -20,20 +20,30 @@ class QuizMangager:ObservableObject{
         return mockQuestions.filter({$0.selection == nil }).isEmpty
         
     }
+    func gradeQuiz() -> String {
+        var correct: CGFloat = 0
+        for question in mockQuestions {
+            if question.answer == question.selection {
+                correct += 1
+            }
+            
+        }
+        return "\((correct/CGFloat(mockQuestions.count)) * 100 )%"
+    }
 }
 
 struct ContentView: View {
     @StateObject var manager = QuizMangager()
     var body: some View {
         TabView {
-            ForEach(manager.mockQuestions, id: \.id){ question in
+            ForEach(manager.mockQuestions.indices, id: \.self){ index in
                 VStack{
                     Spacer()
-                    QuestionView(question: question)
+                    QuestionView(question: $manager.mockQuestions[index])
                     Spacer()
-                    if let lastQuestion = manager.mockQuestions.last,lastQuestion.id == question.id{
+                    if let lastQuestion = manager.mockQuestions.last,lastQuestion.id == $manager.mockQuestions[index].id{
                         
-                        Button{ print(manager.canSubmitQuiz())} label: {
+                        Button{ print(manager.gradeQuiz())} label: {
                             Text("Submit")
                                 .padding()
                                 
@@ -44,6 +54,8 @@ struct ContentView: View {
                                         .frame(width: 340)
                                 )
                         }
+                        .buttonStyle(.plain)
+                        .disabled(!manager.canSubmitQuiz())
                     }
                 }
             }
