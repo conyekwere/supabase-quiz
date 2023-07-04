@@ -16,7 +16,7 @@ struct Question: Identifiable {
 }
 
 struct QuestionView: View {
-    @State var question: Question
+    @Binding var question: Question
     var body: some View {
         VStack(alignment: .leading,spacing: 20){
             Text(question.title)
@@ -55,8 +55,3 @@ struct QuestionView: View {
     }
 }
 
-struct QuestionView_Previews: PreviewProvider {
-    static var previews: some View {
-        QuestionView(question: Question(title: " When was the iPhone first released?", answer: "A", choices: ["A","B","C","D"]))
-    }
-}
