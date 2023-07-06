@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct Question: Identifiable {
-    let id = UUID()
+struct Question: Identifiable, Decodable {
+    let id: Int
+    let createdAt: String
     let title: String
     let answer: String
     let choices: [String]
