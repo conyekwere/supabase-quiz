@@ -6,31 +6,7 @@
 //
 
 import SwiftUI
-class QuizMangager:ObservableObject{
-    @Published var mockQuestions = [
-        Question(title: " When was the iPhone first released?", answer: "A", choices: ["A","B","C","D"]),
-        Question(title: " When was the iP?", answer: "A", choices: ["A","B","C","D"]),
-        Question(title: "  iPhone first released?", answer: "A", choices: ["A","B","C","D"]),
-        Question(title: " last?", answer: "A", choices: ["A","B","C","D"])
-    ]
-    func canSubmitQuiz() -> Bool{
-//        for question in mockQuestions {
-//            if question.id
-//        }
-        return mockQuestions.filter({$0.selection == nil }).isEmpty
-        
-    }
-    func gradeQuiz() -> String {
-        var correct: CGFloat = 0
-        for question in mockQuestions {
-            if question.answer == question.selection {
-                correct += 1
-            }
-            
-        }
-        return "\((correct/CGFloat(mockQuestions.count)) * 100 )%"
-    }
-}
+
 
 struct ContentView: View {
     @StateObject var manager = QuizMangager()
