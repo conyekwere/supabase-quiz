@@ -17,6 +17,8 @@
 		5D6014DA2A4AAE6D006775E8 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6014D92A4AAE6D006775E8 /* QuestionView.swift */; };
 		5D6E18F42A54DDEA00950C02 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 5D6E18F32A54DDEA00950C02 /* Supabase */; };
 		5D6E18F72A54DE7700950C02 /* QuizManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6E18F62A54DE7700950C02 /* QuizManager.swift */; };
+		5D6E18F92A60D55300950C02 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6E18F82A60D55300950C02 /* StartView.swift */; };
+		5D6E18FB2A60D5A600950C02 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6E18FA2A60D5A600950C02 /* ResultsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		5D6014CC2A4AAD25006775E8 /* supabaseswiftuiquizUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = supabaseswiftuiquizUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5D6014D92A4AAE6D006775E8 /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		5D6E18F62A54DE7700950C02 /* QuizManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizManager.swift; sourceTree = "<group>"; };
+		5D6E18F82A60D55300950C02 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		5D6E18FA2A60D5A600950C02 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +112,8 @@
 				5D6014B52A4AAD25006775E8 /* Preview Content */,
 				5D6014D92A4AAE6D006775E8 /* QuestionView.swift */,
 				5D6E18F62A54DE7700950C02 /* QuizManager.swift */,
+				5D6E18F82A60D55300950C02 /* StartView.swift */,
+				5D6E18FA2A60D5A600950C02 /* ResultsView.swift */,
 			);
 			path = supabaseswiftuiquiz;
 			sourceTree = "<group>";
@@ -274,6 +280,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D6E18F72A54DE7700950C02 /* QuizManager.swift in Sources */,
+				5D6E18FB2A60D5A600950C02 /* ResultsView.swift in Sources */,
+				5D6E18F92A60D55300950C02 /* StartView.swift in Sources */,
 				5D6014B12A4AAD22006775E8 /* ContentView.swift in Sources */,
 				5D6014DA2A4AAE6D006775E8 /* QuestionView.swift in Sources */,
 				5D6014AF2A4AAD22006775E8 /* supabaseswiftuiquizApp.swift in Sources */,

@@ -10,6 +10,11 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var manager = QuizMangager()
+    
+    @State var selection = 0
+    @State var showStart = true
+    @State var showResults = false
+    
     var body: some View {
         TabView {
             ForEach(manager.questions.indices, id: \.self){ index in
@@ -34,9 +39,16 @@ struct ContentView: View {
                         .disabled(!manager.canSubmitQuiz())
                     }
                 }
+                .tag(index)
             }
         }
-        .tabViewStyle(.page(indexDisplayMode: .never) )
+        .tabViewStyle(.page(indexDisplayMode: .never))
+        .fullScreenCover(isPresented: $showStart) {
+            StartView()
+        }
+        .fullScreenCover(isPresented: $showResults) {
+            ResultsView(result: manager.quizResult)
+        }
     }
 }
 

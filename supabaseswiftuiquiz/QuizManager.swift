@@ -13,6 +13,7 @@ class QuizMangager:ObservableObject{
     
     
     @Published var questions = [Question]()
+    @Published var quizResult = QuizResult(correct: 0, total: 0, grade: "100%")
 //
 //    @Published var mockQuestions = [
 //        Question(id:1, createdAt: "",title: " When was the iPhone first released?", answer: "A", choices: ["A","B","C","D"]),
@@ -62,4 +63,16 @@ class QuizMangager:ObservableObject{
         }
         return "\((correct/CGFloat(questions.count)) * 100 )%"
     }
+    
+    func resetQuiz() {
+        self.questions = questions.map({ Question(id: $0.id, createdAt: $0.createdAt, title: $0.title, answer: $0.answer, choices: $0.choices, selection: nil)})
+    }
+
+}
+
+
+struct QuizResult {
+    let correct: Int
+    let total: Int
+    let grade: String
 }
