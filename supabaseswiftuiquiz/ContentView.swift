@@ -12,12 +12,12 @@ struct ContentView: View {
     @StateObject var manager = QuizMangager()
     var body: some View {
         TabView {
-            ForEach(manager.mockQuestions.indices, id: \.self){ index in
+            ForEach(manager.questions.indices, id: \.self){ index in
                 VStack{
                     Spacer()
-                    QuestionView(question: $manager.mockQuestions[index])
+                    QuestionView(question: $manager.questions[index])
                     Spacer()
-                    if let lastQuestion = manager.mockQuestions.last,lastQuestion.id == $manager.mockQuestions[index].id{
+                    if let lastQuestion = manager.questions.last,lastQuestion.id == $manager.questions[index].id{
                         
                         Button{ print(manager.gradeQuiz())} label: {
                             Text("Submit")

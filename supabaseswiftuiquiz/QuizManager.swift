@@ -13,13 +13,15 @@ class QuizMangager:ObservableObject{
     
     
     @Published var questions = [Question]()
-
-    @Published var mockQuestions = [
-        Question(id:1, createdAt: "",title: " When was the iPhone first released?", answer: "A", choices: ["A","B","C","D"]),
-        Question(id:2, createdAt: "",title: " When was the iP?", answer: "A", choices: ["A","B","C","D"]),
-        Question(id:3, createdAt: "",title: "  iPhone first released?", answer: "A", choices: ["A","B","C","D"]),
-        Question(id:4, createdAt: "",title: " last?", answer: "A", choices: ["A","B","C","D"])
-    ]
+//
+//    @Published var mockQuestions = [
+//        Question(id:1, createdAt: "",title: " When was the iPhone first released?", answer: "A", choices: ["A","B","C","D"]),
+//        Question(id:2, createdAt: "",title: " When was the iP?", answer: "A", choices: ["A","B","C","D"]),
+//        Question(id:3, createdAt: "",title: "  iPhone first released?", answer: "A", choices: ["A","B","C","D"]),
+//        Question(id:4, createdAt: "",title: " last?", answer: "A", choices: ["A","B","C","D"])
+//    ]
+//    
+    
     let client = SupabaseClient(supabaseURL: URL(string: "https://gbspfpgyitcipubditgo.supabase.co")!, supabaseKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdic3BmcGd5aXRjaXB1YmRpdGdvIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODg1MDE3NDEsImV4cCI6MjAwNDA3Nzc0MX0.LOjNnNdYx55paXrbpBJ3CxIuRqhhtIIBzDarRWwek5A")
     
     init(){
@@ -33,8 +35,8 @@ class QuizMangager:ObservableObject{
                 await MainActor.run {
                     self.questions = questions
                 }
-                //print(questions)
-                print(String(data: data, encoding: .utf8))
+                print(questions)
+               // print(String(data: data, encoding: .utf8))
             } catch{
                 print("error fetching questions")
             }
@@ -47,17 +49,17 @@ class QuizMangager:ObservableObject{
 
     func canSubmitQuiz() -> Bool{
 
-        return mockQuestions.filter({$0.selection == nil }).isEmpty
+        return questions.filter({$0.selection == nil }).isEmpty
         
     }
     func gradeQuiz() -> String {
         var correct: CGFloat = 0
-        for question in mockQuestions {
+        for question in questions {
             if question.answer == question.selection {
                 correct += 1
             }
             
         }
-        return "\((correct/CGFloat(mockQuestions.count)) * 100 )%"
+        return "\((correct/CGFloat(questions.count)) * 100 )%"
     }
 }
